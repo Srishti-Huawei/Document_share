@@ -1,0 +1,66 @@
+stress-ng --stream 4 --stream-l3-size 2M --perf --metrics-brief -t 60
+stress-ng: info:  [4787] dispatching hogs: 4 stream
+stress-ng: info:  [4787] cache allocate: default cache size: 20480K
+stress-ng: info:  [4788] stress-ng-stream: stressor loosely based on a variant of the STREAM benchmark code
+stress-ng: info:  [4788] stress-ng-stream: do NOT submit any of these results to the STREAM benchmark results
+stress-ng: info:  [4788] stress-ng-stream: Using CPU cache size of 2048K
+stress-ng: info:  [4788] stress-ng-stream: memory rate: 25819.82 MB/sec, 10327.93 Mflop/sec (instance 0)
+stress-ng: info:  [4789] stress-ng-stream: memory rate: 6694.01 MB/sec, 2677.61 Mflop/sec (instance 1)
+stress-ng: info:  [4790] stress-ng-stream: memory rate: 5826.07 MB/sec, 2330.43 Mflop/sec (instance 2)
+stress-ng: info:  [4791] stress-ng-stream: memory rate: 5824.43 MB/sec, 2329.77 Mflop/sec (instance 3)
+stress-ng: info:  [4787] successful run completed in 60.00s (1 min, 0.00 secs)
+stress-ng: info:  [4787] stressor      bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+stress-ng: info:  [4787]                          (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: info:  [4787] stream          132444     60.00    239.99      0.00      2207.32       551.87
+stress-ng: info:  [4787] stream:
+stress-ng: info:  [4787]            642,513,910,912 CPU Cycles                    10.71 B/sec
+stress-ng: info:  [4787]            974,943,475,268 Instructions                  16.25 B/sec (1.517 instr. per cycle)
+stress-ng: info:  [4787]            103,196,330,580 Cache References               1.72 B/sec
+stress-ng: info:  [4787]                 45,541,088 Cache Misses                   0.76 M/sec ( 0.04%)
+stress-ng: info:  [4787]            121,909,069,780 Branch Instructions            2.03 B/sec
+stress-ng: info:  [4787]                  3,501,928 Branch Misses                 58.36 K/sec ( 0.00%)
+stress-ng: info:  [4787]             23,901,549,780 Bus Cycles                     0.40 B/sec
+stress-ng: info:  [4787]            501,928,420,908 Total Cycles                   8.36 B/sec
+stress-ng: info:  [4787]                         28 Page Faults Minor              0.47 sec  
+stress-ng: info:  [4787]                          0 Page Faults Major              0.00 sec  
+stress-ng: info:  [4787]                        304 Context Switches               5.07 sec  
+stress-ng: info:  [4787]                          0 CPU Migrations                 0.00 sec  
+stress-ng: info:  [4787]                          0 Alignment Faults               0.00 sec  
+
+
+
+
+
+
+
+
+
+
+stress-ng --stream 4 --stream-l3-size 1M --perf --metrics-brief -t 60
+stress-ng: info:  [4865] dispatching hogs: 4 stream
+stress-ng: info:  [4865] cache allocate: default cache size: 20480K
+stress-ng: info:  [4866] stress-ng-stream: stressor loosely based on a variant of the STREAM benchmark code
+stress-ng: info:  [4866] stress-ng-stream: do NOT submit any of these results to the STREAM benchmark results
+stress-ng: info:  [4866] stress-ng-stream: Using CPU cache size of 1024K
+stress-ng: info:  [4866] stress-ng-stream: memory rate: 20690.82 MB/sec, 8276.33 Mflop/sec (instance 0)
+stress-ng: info:  [4868] stress-ng-stream: memory rate: 17562.86 MB/sec, 7025.14 Mflop/sec (instance 2)
+stress-ng: info:  [4867] stress-ng-stream: memory rate: 13285.53 MB/sec, 5314.21 Mflop/sec (instance 1)
+stress-ng: info:  [4869] stress-ng-stream: memory rate: 13283.17 MB/sec, 5313.27 Mflop/sec (instance 3)
+stress-ng: info:  [4865] successful run completed in 60.00s (1 min, 0.00 secs)
+stress-ng: info:  [4865] stressor      bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+stress-ng: info:  [4865]                          (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: info:  [4865] stream          388859     60.00    239.99      0.00      6480.89      1620.31
+stress-ng: info:  [4865] stream:
+stress-ng: info:  [4865]            641,740,224,592 CPU Cycles                    10.70 B/sec
+stress-ng: info:  [4865]            781,731,206,504 Instructions                  13.03 B/sec (1.218 instr. per cycle)
+stress-ng: info:  [4865]             84,316,486,272 Cache References               1.41 B/sec
+stress-ng: info:  [4865]                911,841,676 Cache Misses                  15.20 M/sec ( 1.08%)
+stress-ng: info:  [4865]             97,774,541,444 Branch Instructions            1.63 B/sec
+stress-ng: info:  [4865]                  2,925,644 Branch Misses                 48.76 K/sec ( 0.00%)
+stress-ng: info:  [4865]             23,911,605,452 Bus Cycles                     0.40 B/sec
+stress-ng: info:  [4865]            502,139,418,072 Total Cycles                   8.37 B/sec
+stress-ng: info:  [4865]                         36 Page Faults Minor              0.60 sec  
+stress-ng: info:  [4865]                          0 Page Faults Major              0.00 sec  
+stress-ng: info:  [4865]                        304 Context Switches               5.07 sec  
+stress-ng: info:  [4865]                          0 CPU Migrations                 0.00 sec  
+stress-ng: info:  [4865]                          0 Alignment Faults               0.00 sec
