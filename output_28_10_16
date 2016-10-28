@@ -1,0 +1,160 @@
+Case 1: Before setting COS
+
+
+xiaoning@ubuntu:~/sri$ sudo pqos  -s
+[sudo] password for xiaoning: 
+NOTE:  Mixed use of MSR and kernel interfaces to manage
+       CAT or CMT & MBM may lead to unexpected behavior.
+L3CA COS definitions for Socket 0:
+    L3CA COS0 => MASK 0xfffff
+    L3CA COS1 => MASK 0xfffff
+    L3CA COS2 => MASK 0xfffff
+    L3CA COS3 => MASK 0xfffff
+    L3CA COS4 => MASK 0xfffff
+    L3CA COS5 => MASK 0xfffff
+    L3CA COS6 => MASK 0xfffff
+    L3CA COS7 => MASK 0xfffff
+    L3CA COS8 => MASK 0xfffff
+    L3CA COS9 => MASK 0xfffff
+    L3CA COS10 => MASK 0xfffff
+    L3CA COS11 => MASK 0xfffff
+    L3CA COS12 => MASK 0xfffff
+    L3CA COS13 => MASK 0xfffff
+    L3CA COS14 => MASK 0xfffff
+    L3CA COS15 => MASK 0xfffff
+Core information for socket 0:
+    Core 0 => COS0, RMID0
+    Core 1 => COS0, RMID0
+    Core 2 => COS0, RMID0
+    Core 3 => COS0, RMID0
+    Core 4 => COS0, RMID0
+    Core 5 => COS0, RMID0
+    Core 6 => COS0, RMID0
+    Core 7 => COS0, RMID0
+    Core 8 => COS0, RMID0
+    Core 9 => COS0, RMID0
+    Core 10 => COS0, RMID0
+    Core 11 => COS0, RMID0
+    Core 12 => COS0, RMID0
+    Core 13 => COS0, RMID0
+    Core 14 => COS0, RMID0
+    Core 15 => COS0, RMID0
+
+
+
+
+
+xiaoning@ubuntu:~/sri$ stress-ng --stream 4 --stream-l3-size 1M --perf --metrics-brief -t 60
+stress-ng: info:  [7574] dispatching hogs: 4 stream
+stress-ng: info:  [7574] cache allocate: default cache size: 20480K
+stress-ng: info:  [7575] stress-ng-stream: stressor loosely based on a variant of the STREAM benchmark code
+stress-ng: info:  [7575] stress-ng-stream: do NOT submit any of these results to the STREAM benchmark results
+stress-ng: info:  [7575] stress-ng-stream: Using CPU cache size of 1024K
+stress-ng: info:  [7575] stress-ng-stream: memory rate: 26321.85 MB/sec, 10528.74 Mflop/sec (instance 0)
+stress-ng: info:  [7576] stress-ng-stream: memory rate: 26390.15 MB/sec, 10556.06 Mflop/sec (instance 1)
+stress-ng: info:  [7577] stress-ng-stream: memory rate: 26390.85 MB/sec, 10556.34 Mflop/sec (instance 2)
+stress-ng: info:  [7578] stress-ng-stream: memory rate: 26455.75 MB/sec, 10582.30 Mflop/sec (instance 3)
+stress-ng: info:  [7574] successful run completed in 60.00s (1 min, 0.00 secs)
+stress-ng: info:  [7574] stressor      bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+stress-ng: info:  [7574]                          (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: info:  [7574] stream          633229     60.00    239.96      0.00     10553.66      2638.89
+stress-ng: info:  [7574] stream:
+stress-ng: info:  [7574]            643,672,036,784 CPU Cycles                    10.73 B/sec
+stress-ng: info:  [7574]            994,048,837,068 Instructions                  16.57 B/sec (1.544 instr. per cycle)
+stress-ng: info:  [7574]            105,221,143,024 Cache References               1.75 B/sec
+stress-ng: info:  [7574]                113,298,172 Cache Misses                   1.89 M/sec ( 0.11%)
+stress-ng: info:  [7574]            124,298,355,220 Branch Instructions            2.07 B/sec
+stress-ng: info:  [7574]                  3,273,776 Branch Misses                 54.56 K/sec ( 0.00%)
+stress-ng: info:  [7574]             23,936,032,060 Bus Cycles                     0.40 B/sec
+stress-ng: info:  [7574]            502,659,489,372 Total Cycles                   8.38 B/sec
+stress-ng: info:  [7574]                         32 Page Faults Minor              0.53 sec  
+stress-ng: info:  [7574]                          0 Page Faults Major              0.00 sec  
+stress-ng: info:  [7574]                         68 Context Switches               1.13 sec  
+stress-ng: info:  [7574]                          0 CPU Migrations                 0.00 sec  
+stress-ng: info:  [7574]                          0 Alignment Faults               0.00 sec  
+
+
+
+
+
+Case 2: After setting COS
+
+
+
+xiaoning@ubuntu:~/sri$ sudo pqos  -s
+NOTE:  Mixed use of MSR and kernel interfaces to manage
+       CAT or CMT & MBM may lead to unexpected behavior.
+L3CA COS definitions for Socket 0:
+    L3CA COS0 => MASK 0xfffff
+    L3CA COS1 => MASK 0x1
+    L3CA COS2 => MASK 0xffe
+    L3CA COS3 => MASK 0xfffff
+    L3CA COS4 => MASK 0xfffff
+    L3CA COS5 => MASK 0xfffff
+    L3CA COS6 => MASK 0xfffff
+    L3CA COS7 => MASK 0xfffff
+    L3CA COS8 => MASK 0xfffff
+    L3CA COS9 => MASK 0xfffff
+    L3CA COS10 => MASK 0xfffff
+    L3CA COS11 => MASK 0xfffff
+    L3CA COS12 => MASK 0xfffff
+    L3CA COS13 => MASK 0xfffff
+    L3CA COS14 => MASK 0xfffff
+    L3CA COS15 => MASK 0xfffff
+Core information for socket 0:
+    Core 0 => COS1, RMID0
+    Core 1 => COS2, RMID0
+    Core 2 => COS2, RMID0
+    Core 3 => COS2, RMID0
+    Core 4 => COS2, RMID0
+    Core 5 => COS2, RMID0
+    Core 6 => COS2, RMID0
+    Core 7 => COS2, RMID0
+    Core 8 => COS2, RMID0
+    Core 9 => COS2, RMID0
+    Core 10 => COS2, RMID0
+    Core 11 => COS2, RMID0
+    Core 12 => COS0, RMID0
+    Core 13 => COS0, RMID0
+    Core 14 => COS0, RMID0
+    Core 15 => COS0, RMID0
+
+
+
+
+xiaoning@ubuntu:~/sri$ stress-ng --stream 4 --stream-l3-size 1M --perf --metrics-brief -t 60
+stress-ng: info:  [7624] dispatching hogs: 4 stream
+stress-ng: info:  [7624] cache allocate: default cache size: 20480K
+stress-ng: info:  [7625] stress-ng-stream: stressor loosely based on a variant of the STREAM benchmark code
+stress-ng: info:  [7625] stress-ng-stream: do NOT submit any of these results to the STREAM benchmark results
+stress-ng: info:  [7625] stress-ng-stream: Using CPU cache size of 1024K
+stress-ng: info:  [7625] stress-ng-stream: memory rate: 26402.45 MB/sec, 10560.98 Mflop/sec (instance 0)
+stress-ng: info:  [7628] stress-ng-stream: memory rate: 21431.68 MB/sec, 8572.67 Mflop/sec (instance 3)
+stress-ng: info:  [7626] stress-ng-stream: memory rate: 22438.51 MB/sec, 8975.40 Mflop/sec (instance 1)
+stress-ng: info:  [7627] stress-ng-stream: memory rate: 19745.35 MB/sec, 7898.14 Mflop/sec (instance 2)
+stress-ng: info:  [7624] successful run completed in 60.00s (1 min, 0.00 secs)
+stress-ng: info:  [7624] stressor      bogo ops real time  usr time  sys time   bogo ops/s   bogo ops/s
+stress-ng: info:  [7624]                          (secs)    (secs)    (secs)   (real time) (usr+sys time)
+stress-ng: info:  [7624] stream          539996     60.00    239.99      0.00      8999.80      2250.08
+stress-ng: info:  [7624] stream:
+stress-ng: info:  [7624]            641,725,885,768 CPU Cycles                    10.69 B/sec
+stress-ng: info:  [7624]            997,242,396,312 Instructions                  16.62 B/sec (1.554 instr. per cycle)
+stress-ng: info:  [7624]            105,423,418,584 Cache References               1.76 B/sec
+stress-ng: info:  [7624]                 32,634,624 Cache Misses                   0.54 M/sec ( 0.03%)
+stress-ng: info:  [7624]            124,693,146,644 Branch Instructions            2.08 B/sec
+stress-ng: info:  [7624]                  3,012,080 Branch Misses                 50.20 K/sec ( 0.00%)
+stress-ng: info:  [7624]             23,936,734,636 Bus Cycles                     0.40 B/sec
+stress-ng: info:  [7624]            502,666,720,228 Total Cycles                   8.38 B/sec
+stress-ng: info:  [7624]                         28 Page Faults Minor              0.47 sec  
+stress-ng: info:  [7624]                          0 Page Faults Major              0.00 sec  
+stress-ng: info:  [7624]                         68 Context Switches               1.13 sec  
+stress-ng: info:  [7624]                          0 CPU Migrations                 0.00 sec  
+stress-ng: info:  [7624]                          0 Alignment Faults               0.00 sec  
+
+
+
+
+
+
+
+
